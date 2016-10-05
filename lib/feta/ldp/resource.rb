@@ -167,7 +167,7 @@ module Feta::LDP
     private
 
     def ldp_ns
-      Krikri::Settings['marmotta']['ldp']
+      Feta::Settings['marmotta']['ldp']
     end
 
     def validate_subject
