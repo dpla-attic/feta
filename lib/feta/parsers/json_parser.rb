@@ -19,7 +19,7 @@ module Feta
     ##
     # JsonParser::Value
     # @see Krikri::Parser::Value
-    class Value < Krikri::Parser::Value
+    class Value < Feta::Parser::Value
       attr_accessor :node
 
       def initialize(node)
@@ -60,7 +60,7 @@ module Feta
         end
 
         vals.reject! { |n| n.node.nil? }
-        Krikri::Parser::ValueArray.new(vals)
+        Feta::Parser::ValueArray.new(vals)
       end
 
       def attribute(name)
