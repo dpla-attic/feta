@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "rdf", "~> 1.1.13"
+
