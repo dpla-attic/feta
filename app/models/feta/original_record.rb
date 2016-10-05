@@ -2,8 +2,8 @@ module Feta
   ##
   # Handles records as harvested, prior to mapping
   class OriginalRecord
-    include Krikri::LDP::Resource
-    include Krikri::LDP::Invalidatable
+    include Feta::LDP::Resource
+    include Feta::LDP::Invalidatable
 
     attr_accessor :content, :local_name, :rdf_subject
     attr_writer :content_type
@@ -86,7 +86,7 @@ module Feta
       # @return [String] the URI namespace/LDP container for resources of this 
       #   class
       def base_uri
-        Krikri::Settings['marmotta']['record_container']
+        Feta::Settings['marmotta']['record_container']
       end
 
       ##
