@@ -72,7 +72,7 @@ module Feta
 
     ##
     # An application-wide registry of defined mappings
-    Registry = Class.new(Krikri::Registry)
+    Registry = Class.new(Feta::Registry)
 
     ##
     # A SoftwareAgent to run mapping processes.
@@ -101,7 +101,7 @@ module Feta
       # @see Krikri::EntityBehavior
       # @see Krikri::SoftwareAgent#entity_behavior
       def entity_behavior
-        @entity_behavior ||= Krikri::AggregationEntityBehavior
+        @entity_behavior ||= Feta::AggregationEntityBehavior
       end
 
       ##
@@ -118,7 +118,7 @@ module Feta
       #   for provenance purposes (default: nil)
       # @see SoftwareAgent#run
       def run(activity_uri = nil)
-        Krikri::Mapper.map(name, entities).each do |rec|
+        Feta::Mapper.map(name, entities).each do |rec|
           begin
             rec.mint_id! if rec.node?
             activity_uri ? rec.save_with_provenance(activity_uri) : rec.save
