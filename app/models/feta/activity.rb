@@ -27,8 +27,8 @@ module Feta
     #   
     # @return [RDF::URI] the configured base URI for this class
     def self.base_uri
-      RDF::URI.intern(Krikri::Settings['marmotta']['ldp']) /
-        Krikri::Settings['prov']['activity']
+      RDF::URI.intern(Feta::Settings['marmotta']['ldp']) /
+        Feta::Settings['prov']['activity']
     end
 
     ##
@@ -48,7 +48,7 @@ module Feta
 
     def agent_must_be_a_software_agent
       errors.add(:agent, 'does not represent a SoftwareAgent') unless
-        agent.constantize < Krikri::SoftwareAgent
+        agent.constantize < Feta::SoftwareAgent
     end
 
     def set_start_time
@@ -72,18 +72,18 @@ module Feta
     def run
       if block_given?
         update_attribute(:end_time, nil) if ended?
-        Krikri::Logger
+        Feta::Logger
           .log(:info, "Activity #{agent.constantize}-#{id} is running")
         set_start_time
         begin
           yield agent_instance, rdf_subject
         rescue => e
-          Krikri::Logger.log(:error, "Error performing Activity: #{id}\n" \
+          Feta::Logger.log(:error, "Error performing Activity: #{id}\n" \
                                      "#{e.message}\n#{e.backtrace}")
           raise e
         ensure
           set_end_time
-          Krikri::Logger
+          Feta::Logger
             .log(:info, "Activity #{agent.constantize}-#{id} is done")
         end
       end
@@ -141,7 +141,7 @@ module Feta
     #
     def entity_uris(include_invalidated = false)
       activity_uri = RDF::URI(rdf_subject)  # This activity's LDP URI
-      query = Krikri::ProvenanceQueryClient
+      query = Feta::ProvenanceQueryClient
         .find_by_activity(activity_uri, include_invalidated)
       query.each_solution.lazy.map do |s|
         s.record.to_s

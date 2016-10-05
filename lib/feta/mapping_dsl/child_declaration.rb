@@ -84,7 +84,7 @@ module Feta::MappingDSL
         if each_val
           iter = each_val.respond_to?(:call) ? each_val.call(record) : each_val
           iter.each do |value|
-            map = Krikri::Mapping.new(target_class)
+            map = Feta::Mapping.new(target_class)
 
             # define as_sym to return the node (not the value) for this value, 
             # only on this instance
@@ -101,7 +101,7 @@ module Feta::MappingDSL
         # else, process a single child mapping over a single instance of 
         # `target_class`
         else
-          map = Krikri::Mapping.new(target_class)
+          map = Feta::Mapping.new(target_class)
           map.instance_eval(&block)
           target.send(setter, map.process_record(record))
         end

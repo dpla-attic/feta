@@ -50,7 +50,7 @@ module Feta::MappingDSL
     def header
       RecordProxy.new(
         [{ name: :header }],
-        Krikri::Parser::ValueArray,
+        Feta::Parser::ValueArray,
         true)
     end
 

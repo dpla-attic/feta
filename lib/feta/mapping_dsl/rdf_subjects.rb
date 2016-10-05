@@ -7,7 +7,7 @@ module Feta::MappingDSL
       properties << SubjectDeclaration.new(nil, value, &block)
     end
 
-    class SubjectDeclaration < Krikri::MappingDSL::PropertyDeclaration
+    class SubjectDeclaration < Feta::MappingDSL::PropertyDeclaration
       def to_proc
         block = @block if @block
         value = @value

@@ -112,13 +112,13 @@ module Feta
         fail ArgumentError, "unexpected arguments #{args}" unless args.empty?
         fail ArgumentError, 'opts is not a hash' unless opts.is_a?(Hash)
 
-        activity = Krikri::Activity.create do |a|
+        activity = Feta::Activity.create do |a|
           a.agent = agent_name
           a.opts = JSON.generate(opts)
         end
 
         Feta::Logger.log :info, "created activity #{activity.id}"
-        Resque.enqueue_to(queue, Krikri::Job, activity.id)
+        Resque.enqueue_to(queue, Feta::Job, activity.id)
         Feta::Logger.log :info, "enqueued to #{queue}"
         true
       end
