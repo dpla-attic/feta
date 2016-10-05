@@ -21,3 +21,5 @@ marmotta
 dump.rdb
 
 coverage
+
+.idea/
