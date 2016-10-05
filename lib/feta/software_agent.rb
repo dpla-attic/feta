@@ -62,7 +62,7 @@ module Feta
       #   behavior for this class of SoftwareAgents
       # @see #entity_behavior
       def entity_behavior
-        Krikri::AggregationEntityBehavior
+        Feta::AggregationEntityBehavior
       end
 
       ##
@@ -117,9 +117,9 @@ module Feta
           a.opts = JSON.generate(opts)
         end
 
-        Krikri::Logger.log :info, "created activity #{activity.id}"
+        Feta::Logger.log :info, "created activity #{activity.id}"
         Resque.enqueue_to(queue, Krikri::Job, activity.id)
-        Krikri::Logger.log :info, "enqueued to #{queue}"
+        Feta::Logger.log :info, "enqueued to #{queue}"
         true
       end
     end
