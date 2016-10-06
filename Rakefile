@@ -27,6 +27,6 @@ task :cdl => :environment do
   orig = Feta::OriginalRecord.build('fake', file, 'json')
   mapped_records = Feta::Mapper.map(:cdl, [orig])
   puts mapped_records.first
-  # agg = mapped_records.first
-  # puts agg.dump(:ttl)
+  agg = mapped_records.first
+  puts agg.dump(:ttl)
 end
