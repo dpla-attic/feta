@@ -42,4 +42,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem "rdf", "~> 1.1.13"
+gem "rails_config", "~> 0.4.0"
 
