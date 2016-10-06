@@ -19,6 +19,12 @@ module Feta
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib/)
+    # Dir.glob("#{config.root}/lib/**/*.rb").each { |f| require f }
+
+    def _all_autoload_paths
+        @_all_autoload_paths ||= (config.autoload_paths + config.eager_load_paths + config.autoload_once_paths).uniq
+    end
+
   end
 end

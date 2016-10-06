@@ -76,7 +76,7 @@ module Feta
               "Got a #{content.class}") unless
           content.is_a?(String) || content.respond_to?(:read)
         record = new(identifier)
-        record.reload if record.exists?
+        # record.reload if record.exists?
         record.content = content
         record.content_type = content_type
         record

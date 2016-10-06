@@ -44,3 +44,6 @@ gem 'spring',        group: :development
 gem "rdf", "~> 1.1.13"
 gem "rails_config", "~> 0.4.0"
 
+
+gem 'faraday'
+gem 'faraday_middleware'
