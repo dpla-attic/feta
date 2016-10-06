@@ -10,6 +10,5 @@ task :default => [:cdl]
 desc 'Run CDL mappings'
 
 task :cdl => :environment do
-  #run cdl mapping
-  puts "cdl"
+  Feta::Mapper.map(:cdl, [])
 end
