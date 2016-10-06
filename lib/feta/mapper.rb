@@ -39,7 +39,7 @@ module Feta
     #   mapping in the language specified by MappingDSL
     def define(name, opts = {}, &block)
       klass = opts.fetch(:class, DPLA::MAP::Aggregation)
-      parser = opts.fetch(:parser, Feta::XmlParser)
+      parser = opts.fetch(:parser, Feta::JsonParser)
       parser_args = opts.fetch(:parser_args, nil)
       map = Feta::Mapping.new(klass, parser, *parser_args)
       map.instance_eval(&block) if block_given?
