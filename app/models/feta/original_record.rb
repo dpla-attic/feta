@@ -86,7 +86,7 @@ module Feta
       # @return [String] the URI namespace/LDP container for resources of this 
       #   class
       def base_uri
-        Feta::Settings['marmotta']['record_container']
+        'http://example.com'
       end
 
       ##

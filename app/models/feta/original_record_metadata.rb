@@ -4,7 +4,7 @@ module Feta
   class OriginalRecordMetadata < ActiveTriples::Resource
     include Feta::LDP::RdfSource
 
-    configure base_uri: Feta::Settings.marmotta.record_container
+    configure base_uri: 'http://record_container.example'
 
     property :created, predicate: RDF::DC.created
     property :modified, predicate: RDF::DC.modified

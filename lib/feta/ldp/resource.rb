@@ -167,7 +167,7 @@ module Feta::LDP
     private
 
     def ldp_ns
-      Feta::Settings['marmotta']['ldp']
+      'http://example.com/fake'
     end
 
     def validate_subject

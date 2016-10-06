@@ -21,6 +21,7 @@ desc 'Run CDL mappings'
 task :cdl => :environment do  
   desc 'Load cdl mapping'
   require './lib/feta/metadata_mappings/cdl.rb'
+  require './config/initializers/rails_config.rb'
   
   file = open('./original_records/b9c006084b95dc7e1e0288c95d2607be.json', 'rb').read
   orig = Feta::OriginalRecord.build('fake', file, 'json')
