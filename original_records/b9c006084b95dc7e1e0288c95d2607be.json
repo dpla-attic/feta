@@ -1,0 +1,94 @@
+{
+  "url_item": "http://sflib1.sfpl.org:82/record=b1033668",
+  "description": [
+    "Folder: S.F. Colleges-University of San Francisco-Students, Staff.",
+    "Permission to use this image must be obtained from the San Francisco History Center, San Francisco Public Library: www.sfpl.org/permissions."
+  ],
+  "description_ss": [
+    "Folder: S.F. Colleges-University of San Francisco-Students, Staff.",
+    "Permission to use this image must be obtained from the San Francisco History Center, San Francisco Public Library: www.sfpl.org/permissions."
+  ],
+  "format": [
+    "Nonprojected graphic"
+  ],
+  "format_ss": [
+    "Nonprojected graphic"
+  ],
+  "harvest_id_s": "26095--AAD-8022",
+  "sort_title": "crowd watching foot race at the university of san francisco",
+  "repository_url": [
+    "https://registry.cdlib.org/api/v1/repository/144/"
+  ],
+  "sort_date_end": "1946-01-01T00:00:00Z",
+  "sort_date_start": "1946-01-01T00:00:00Z",
+  "extent": [
+    "1 photographic print :"
+  ],
+  "extent_ss": [
+    "1 photographic print :"
+  ],
+  "date": [
+    "1946 July 1"
+  ],
+  "date_ss": [
+    "1946 July 1"
+  ],
+  "id": "c199503ee268fcfe9e8b46cb2cc5d4d5",
+  "subject": [
+    "Colleges--University of San Francisco--Students, Staff",
+    "San Francisco (Calif.)--Photographs"
+  ],
+  "subject_ss": [
+    "Colleges--University of San Francisco--Students, Staff",
+    "San Francisco (Calif.)--Photographs"
+  ],
+  "collection_url": [
+    "https://registry.cdlib.org/api/v1/collection/26095/"
+  ],
+  "repository_name": [
+    "San Francisco Public Library"
+  ],
+  "reference_image_md5": "968e4ba638dda2a3be2d2a301e6770a3",
+  "repository_data": [
+    "https://registry.cdlib.org/api/v1/repository/144/::San Francisco Public Library"
+  ],
+  "language": [
+    "Eng"
+  ],
+  "language_ss": [
+    "Eng"
+  ],
+  "rights": [
+    "Permission to use this image must be obtained from the San Francisco History Center, San Francisco Public Library: www.sfpl.org/permissions."
+  ],
+  "rights_ss": [
+    "Permission to use this image must be obtained from the San Francisco History Center, San Francisco Public Library: www.sfpl.org/permissions."
+  ],
+  "reference_image_dimensions": "520:400",
+  "title": [
+    "[Crowd watching foot race at the University of San Francisco]"
+  ],
+  "title_ss": [
+    "[Crowd watching foot race at the University of San Francisco]"
+  ],
+  "collection_data": [
+    "https://registry.cdlib.org/api/v1/collection/26095/::San Francisco Historical Photograph Collection"
+  ],
+  "sort_collection_data": [
+    "san francisco historical photograph collection:San Francisco Historical Photograph Collection:https://registry.cdlib.org/api/v1/collection/26095/"
+  ],
+  "collection_name": [
+    "San Francisco Historical Photograph Collection"
+  ],
+  "facet_decade": [
+    "1940s"
+  ],
+  "type": [
+    "image"
+  ],
+  "type_ss": [
+    "image"
+  ],
+  "_version_": 1528283423500664832,
+  "timestamp": "2016-03-09T00:50:49.182Z"
+}
