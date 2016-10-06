@@ -65,7 +65,7 @@ module Feta
           mapping.process_record(rec)
         rescue => e
           Rails.logger.error(e.message)
-          nil
+          e.message
         end
       end
     end
