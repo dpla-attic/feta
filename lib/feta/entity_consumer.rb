@@ -1,6 +1,6 @@
 module Feta
   ##
-  # A mixin for `Krikri::SoftwareAgent`s that use entities. Provides a
+  # A mixin for `Feta::SoftwareAgent`s that use entities. Provides a
   # mechanism for setting an `#entity_source` and consuming entities.
   #
   # For backwards compatability, this supports an older interface where entities
@@ -8,12 +8,12 @@ module Feta
   #
   # @example the deprecated interface
   #   class AnAgent
-  #     include Krikri::EntityConsumer
+  #     include Feta::EntityConsumer
   #   end
   #
   #   agent = AnAgent.new
   #   agent.assign_generator_activity!(generator_uri:
-  #     Krikri::Activity.find(1).rdf_subject)
+  #     Feta::Activity.find(1).rdf_subject)
   #
   #   agent.generator_activity.entities
   #
@@ -36,18 +36,18 @@ module Feta
     # messages; an indexing activity, in particular.  In this case an LDP URI
     # representing the activity is not relevant.
     #
-    # @see Krikri::Mapper::Agent
-    # @see Krikri::Harvester
+    # @see Feta::Mapper::Agent
+    # @see Feta::Harvester
     def assign_generator_activity!(opts)
       if opts.include?(:generator_uri)
         generator_uri = opts.delete(:generator_uri)
         @entity_source =
-          @generator_activity = Krikri::Activity.from_uri(generator_uri)
+          @generator_activity = Feta::Activity.from_uri(generator_uri)
       end
     end
 
     ##
-    # @return [Enumerator<Krikri::LDP::Resource>] entities this agent will use
+    # @return [Enumerator<Feta::LDP::Resource>] entities this agent will use
     def entities
       entity_source ? entity_source.entities : []
     end

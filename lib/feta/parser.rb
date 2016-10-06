@@ -3,14 +3,14 @@ module Feta
   # Provides a generic interface for accessing properties from OriginalRecords.
   # Implement the interface, and that of `Value` on an record-type basis.
   #
-  #   parser = Krikri::Parser::MyParser.new(record)
-  #   parser.root # => #<Krikri::MyParser::Value:0x007f861888fea0>
+  #   parser = Feta::Parser::MyParser.new(record)
+  #   parser.root # => #<Feta::MyParser::Value:0x007f861888fea0>
   #
   class Parser
     attr_reader :root, :record
 
     ##
-    # @param record [Krikri::OriginalRecord] a record whose properties can
+    # @param record [Feta::OriginalRecord] a record whose properties can
     #   be parsed by the parser instance.
     def initialize(record)
       @record = record
@@ -20,10 +20,10 @@ module Feta
     # Instantiates a parser object to wrap the record. Returns the record
     # as is if it is already parsed.
     #
-    # @param record [Krikri::OriginalRecord, Krikri::Parser] the record to parse
+    # @param record [Feta::OriginalRecord, Feta::Parser] the record to parse
     # @param args [Array, nil] the arguments to pass to the parser instance,
     #   if any
-    # @return [Krikri::Parser] a parsed record object
+    # @return [Feta::Parser] a parsed record object
     def self.parse(record, *args)
       record.is_a?(Feta::Parser) ? record : new(record, *args)
     end
@@ -58,7 +58,7 @@ module Feta
       #   va = value['this|that']  # gives value for "this" if both defined
       #
       # @param name [String] An expression of named properties to access
-      # @return [Krikri::Parser::ValueArray]
+      # @return [Feta::Parser::ValueArray]
       def [](name_exp)
         name_exp.strip.split(/\s*\|\s*/).each do |n|
           result = get_child_nodes(n)
@@ -135,10 +135,10 @@ module Feta
       end
 
       ##
-      # @abstract Return a Krikri::Parser::ValueArray of child nodes
+      # @abstract Return a Feta::Parser::ValueArray of child nodes
       #
       # @param name [String] Element or property name
-      # @return [Krikri::Parser::ValueArray] The child nodes
+      # @return [Feta::Parser::ValueArray] The child nodes
       def get_child_nodes(name)
         raise NotImplementedError, "Can't access property #{name}"
       end
@@ -158,7 +158,7 @@ module Feta
     # literal value.
     #
     # Uses `#bindings` to track variables for recovery via `#else`, `#from`, and
-    #`#back`. Methods that return a `ValueArray` pass `#bindings` down to the 
+    #`#back`. Methods that return a `ValueArray` pass `#bindings` down to the
     # new instance.
     #
     # @example
@@ -369,7 +369,7 @@ module Feta
       # to specify how many items to return. By design, it behaves similarly
       # to Array#first, but it intentionally doesn't override it.
       #
-      # @return [ValueArray] a Krikri::Parser::ValueArray for first n elements
+      # @return [ValueArray] a Feta::Parser::ValueArray for first n elements
       def first_value(*args)
         return self.class.new(@array.first(*args)) unless args.empty?
         self.class.new([@array.first].compact, bindings)
@@ -380,7 +380,7 @@ module Feta
       # to specify how many items to return. By design, it behaves similarly
       # to Array#last, but it intentionally doesn't override it.
       #
-      # @return [ValueArray] a Krikri::Parser::ValueArray for last n elements
+      # @return [ValueArray] a Feta::Parser::ValueArray for last n elements
       def last_value(*args)
         return self.class.new(@array.last(*args)) unless args.empty?
         self.class.new([@array.last].compact, bindings)
@@ -499,7 +499,7 @@ module Feta
       ##
       # Wraps the root node of the given record in this class.
       #
-      # @param record [Krikri::Parser] a parsed record to wrap in a ValueArray
+      # @param record [Feta::Parser] a parsed record to wrap in a ValueArray
       # @return [ValueArray]
       def self.build(record)
         new([record.root])

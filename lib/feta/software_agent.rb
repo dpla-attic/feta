@@ -1,7 +1,7 @@
 module Feta
   ##
   # SoftwareAgent is a mixin for logic common to classes that carry out the 
-  # work involved in a `Krikri::Activity`. This corresponds to a 
+  # work involved in a `Feta::Activity`. This corresponds to a 
   # prov:SoftwareAgent within PROV-O & PROV-DM.
   #
   # Software Agents should handle internal errors that do not result in full
@@ -10,16 +10,16 @@ module Feta
   #
   # Implementers must provide a `#run` method.
   #
-  # @see Krikri::Activity
+  # @see Feta::Activity
   # @see https://www.w3.org/TR/prov-dm/#concept-software-agent
   module SoftwareAgent
     extend ActiveSupport::Concern
 
     ##
     # @!attribute [rw] entity_behavior
-    #   @return [Krikri::EntityBehavior] the entity initialization behavior to  use with this 
+    #   @return [Feta::EntityBehavior] the entity initialization behavior to  use with this 
     #     SoftwareAgent.
-    #   @see Krikri::Activity#entities
+    #   @see Feta::Activity#entities
     included { attr_accessor :entity_behavior }
 
     ##
@@ -27,7 +27,7 @@ module Feta
     # This is the name of the most-derived class upon which this is invoked.
     #
     # @return [String]
-    # @see Krikri::Activity
+    # @see Feta::Activity
     def agent_name
       self.class.agent_name
     end
@@ -43,7 +43,7 @@ module Feta
     # @raise [RuntimeError] when the software agent's process fails
     #
     # @see Krirkri::Activity
-    # @see Krikri::Job.run
+    # @see Feta::Job.run
     def run
       fail NotImplementedError
     end
@@ -58,7 +58,7 @@ module Feta
       end
 
       ##
-      # @return [Krikri::EntityBehavior] the default entity initializiation 
+      # @return [Feta::EntityBehavior] the default entity initializiation 
       #   behavior for this class of SoftwareAgents
       # @see #entity_behavior
       def entity_behavior
@@ -79,7 +79,7 @@ module Feta
       #   MyAgent.enqueue(:name => my_job)
       #
       # @example
-      #   Krikri::Harvesters::OAIHarvester.enqueue(
+      #   Feta::Harvesters::OAIHarvester.enqueue(
       #     :harvest,
       #     opts = {
       #       uri: 'http://vcoai.lib.harvard.edu/vcoai/vc',
@@ -102,9 +102,9 @@ module Feta
       # @return [Boolean]
       #
       # @see https://github.com/resque/resque/tree/1-x-stable
-      # @see Krikri::Job
-      # @see Krikri::SoftwareAgent#agent_name
-      # @see Krikri::Harvester::expected_opts
+      # @see Feta::Job
+      # @see Feta::SoftwareAgent#agent_name
+      # @see Feta::Harvester::expected_opts
       def enqueue(*args)
         queue = args.shift unless args.first.is_a? Hash
         queue ||= queue_name

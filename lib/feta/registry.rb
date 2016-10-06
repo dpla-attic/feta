@@ -5,8 +5,8 @@ module Feta
   # symbol.
   #
   # Expected to be extended as needed within other modules.
-  # @see Krikri::Harvester::Registry
-  # @see Krikri::Mapper::Registry
+  # @see Feta::Harvester::Registry
+  # @see Feta::Mapper::Registry
   #
   class Registry
     include Singleton

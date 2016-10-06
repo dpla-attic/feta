@@ -8,7 +8,7 @@
 #  e.g.
 #   https://thumbnails.calisphere.org/clip/1536:1024/39e015bc8fd770a69775811891784282
 def cdl_preview(md5)
-  image_url = md5 && ("https://thumbnails.calisphere.org/clip/150x150/#{md5}")
+  image_url = md5 && "https://thumbnails.calisphere.org/clip/150x150/#{md5}"
   image_url
 end
 

@@ -9,7 +9,7 @@ module Feta
   #    # => #<MyModelClass:0x3ff8b7459210()>
   #
   # When one or more errors are encoutered during processing, they are collected
-  # in a `Krikri::Kapping::Error` and re-raised.
+  # in a `Feta::Kapping::Error` and re-raised.
   #
   # @example When an error is thrown during property mapping
   #    map = Mapping.new(MyModelClass)
@@ -25,7 +25,7 @@ module Feta
   #    #       {title error message}
   #    #       {title error backtrace}
   #   
-  # @see Krikri::MappingDSL
+  # @see Feta::MappingDSL
   class Mapping
     include MappingDSL
 
@@ -49,7 +49,7 @@ module Feta
     #
     # @return [Object] A model object of type @klass, processed through the
     #   mapping DSL
-    # @raise [Krikri::Mapper::Error] when an error is thrown when handling any
+    # @raise [Feta::Mapper::Error] when an error is thrown when handling any
     #   of the properties
     def process_record(record)
       mapped_record = klass.new
@@ -65,14 +65,14 @@ module Feta
     end
     
     ##
-    # An error class for exceptions thrown during `Krikri::Mapping` processes.
+    # An error class for exceptions thrown during `Feta::Mapping` processes.
     #
     # Collects the full set of errors encountered when mapping a given record,
     # along with the property names that were being processed when throwing the 
     # error.
     #
     # @example collecting exceptions and reraising
-    #   err = Krikri::Mapping::Error.new(record)
+    #   err = Feta::Mapping::Error.new(record)
     #   err.add(:title, exception)
     #   raise err
     #
@@ -80,7 +80,7 @@ module Feta
       attr_accessor :original_record, :errors
 
       ##
-      # @param [Krikri::OriginalRecord] record
+      # @param [Feta::OriginalRecord] record
       def initialize(record)
         @original_record = record
         @errors = {}

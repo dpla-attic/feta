@@ -3,10 +3,10 @@ require 'jsonpath'
 module Feta
   ##
   # JsonParser
-  # @see Krikri::Parser
+  # @see Feta::Parser
   class JsonParser < Feta::Parser
     ##
-    # @param record [Krikri::OriginalRecord] a record whose properties can
+    # @param record [Feta::OriginalRecord] a record whose properties can
     # be parsed by the parser instance.
     # @param root_path [String] JsonPath that identifies the root path for
     # the desired parse root.
@@ -18,7 +18,7 @@ module Feta
 
     ##
     # JsonParser::Value
-    # @see Krikri::Parser::Value
+    # @see Feta::Parser::Value
     class Value < Feta::Parser::Value
       attr_accessor :node
 
@@ -45,10 +45,10 @@ module Feta
       private
 
       ##
-      # @see Krikri::Parser#get_child_nodes
+      # @see Feta::Parser#get_child_nodes
       #
       # @param name_exp [String]  Object property name
-      # @return [Krikri::Parser::ValueArray]
+      # @return [Feta::Parser::ValueArray]
       def get_child_nodes(name, node: @node)
         return get_child_nodes(name, node: node.flatten.first) if
           node.is_a?(Array)

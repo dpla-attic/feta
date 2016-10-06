@@ -1,16 +1,16 @@
 module Feta::LDP
   ##
-  # Implements invalidation for `Krikri::LDP::Resource`s. This is different 
+  # Implements invalidation for `Feta::LDP::Resource`s. This is different 
   # from deletion, in that the resource continues to respond `200 OK`, and 
   # return the representation, Nothing is removed from the LDP server.
   # 
-  # Works as a mixin to `Krikri::LDP::Resource`, assuming an implementation of
+  # Works as a mixin to `Feta::LDP::Resource`, assuming an implementation of
   # `#rdf_source`, which may simply return `self`.
   #
   # @example invalidating a resource
   #   class MyResource
-  #     include Krikri::LDP::Resource
-  #     include Krikri::LDP::Invalidatable
+  #     include Feta::LDP::Resource
+  #     include Feta::LDP::Invalidatable
   #
   #     def rdf_subject
   #       @rdf_subject ||= RDF::URI('http://example.com/ldp/a/resource/path')

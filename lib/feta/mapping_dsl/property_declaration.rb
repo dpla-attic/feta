@@ -7,7 +7,7 @@ module Feta::MappingDSL
   # @example a basic declaration
   #   class Book; attr_accessor :author; end
   #
-  #   dec = Krikri::MappingDSL::PropertyDeclaration.new(:author, 
+  #   dec = Feta::MappingDSL::PropertyDeclaration.new(:author, 
   #     ['Moomin', 'Snuffkin'])
   #
   #   book = Book.new
@@ -20,7 +20,7 @@ module Feta::MappingDSL
   #   class Book; attr_accessor :author; end
   #
   #   values = lambda { |_| ['Moomin', 'Snuffkin'] }
-  #   dec = Krikri::MappingDSL::PropertyDeclaration.new(:author, values)
+  #   dec = Feta::MappingDSL::PropertyDeclaration.new(:author, values)
   #
   #   book = Book.new
   #   dec.to_proc.call(book, nil) # nil stands in for a record.

@@ -15,7 +15,7 @@ module Feta::LDP
 
     ##
     # @return [Boolean] false if this resource does not ex
-    # @see Krikri::LDP::Resource#exists?
+    # @see Feta::LDP::Resource#exists?
     def exists?
       return false if node?
       super
@@ -26,7 +26,7 @@ module Feta::LDP
     # PUTs the LDP resource named in #rdf_subject, populating it's content
     # (graph) from the object's RDF::Graph.
     #
-    # @see Krikri::LDP::Resource#save
+    # @see Feta::LDP::Resource#save
     # @note this may leave the resource's graph out of sync with the LDP
     #   endpoint since the endpoint may add management triples when saving.
     def save(*)
@@ -49,7 +49,7 @@ module Feta::LDP
     # GETs the LDP resource from #rdf_subject and resets this object's
     # RDF::Graph to match the one returned from the LDP server.
     #
-    # @see Krikri::LDP::Resource#get
+    # @see Feta::LDP::Resource#get
     def get(*args)
       result = super
       reload_ldp

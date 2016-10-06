@@ -9,7 +9,7 @@ module Feta
   #
   class Activity < ActiveRecord::Base
     # @!attribute agent
-    #    @return [String] a string representing the Krikri::SoftwareAgent
+    #    @return [String] a string representing the Feta::SoftwareAgent
     #      responsible for the activity.
     # @!attribute start_time
     #    @return [DateTime] a datestamp marking the activity's start
@@ -23,7 +23,7 @@ module Feta
 
     ##
     # @example building a valid URI from the base
-    #   Krikri::Activity.base_uri / 1
+    #   Feta::Activity.base_uri / 1
     #   
     # @return [RDF::URI] the configured base URI for this class
     def self.base_uri
@@ -34,7 +34,7 @@ module Feta
     ##
     # @param uri [#to_s] a uri for this activity
     #
-    # @return [Krikri::Activity] the activity with the given uri
+    # @return [Feta::Activity] the activity with the given uri
     #
     # @raise [RuntimeError] if the URI form does not match the activity
     # @raise [ActiveRecord::RecordNotFound] if no activity is found
@@ -136,7 +136,7 @@ module Feta
     #
     # @return [Enumerator] URI strings
     #
-    # @see Krikri::ProvenanceQueryClient#find_by_activity regarding
+    # @see Feta::ProvenanceQueryClient#find_by_activity regarding
     #   invalidation.
     #
     def entity_uris(include_invalidated = false)

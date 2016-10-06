@@ -4,7 +4,7 @@ module Feta
   # Define mappings by passing a block to #define with registered DSL methods;
   # in the simple case pass values to property names:
   #
-  #   Krikri::Mapper.define do
+  #   Feta::Mapper.define do
   #     property_name   value
   #     property_two    another_value do |val|
   #       transform_value(val)
@@ -18,7 +18,7 @@ module Feta
   # #define accepts :class as an option, to specify the model class to use.
   # The default is DPLA::MAP::Aggregation:
   #
-  #   Krikri::Mapper.define :class => MyModelClass {}
+  #   Feta::Mapper.define :class => MyModelClass {}
   #
   # Once a Mapping is defined, create mapped records with #map to return objects
   # of the specified class.
@@ -48,7 +48,7 @@ module Feta
 
     ##
     # Maps OriginalRecords to the specified model class using a registered
-    # Krikri::Mapping.
+    # Feta::Mapping.
     #
     # @param name [Symbol] the name of a registered mapper to use
     # @param records A record or list of records that respond to #to_s
@@ -78,10 +78,10 @@ module Feta
     # A SoftwareAgent to run mapping processes.
     #
     # @example to map the records harvested by the harvest activity with ID 1:
-    #   Krikri::Mapper::Agent.enqueue(name: :scdl_qdc,
+    #   Feta::Mapper::Agent.enqueue(name: :scdl_qdc,
     #     generator_uri: 'http://ldp.local.dp.la/ldp/activity/1')
     #
-    # @see: Krikri::SoftwareAgent, Krikri::Activity
+    # @see: Feta::SoftwareAgent, Feta::Activity
     class Agent
       include SoftwareAgent
       include EntityConsumer
@@ -97,9 +97,9 @@ module Feta
       end
 
       ##
-      # @see Krikri::Activity#entities
-      # @see Krikri::EntityBehavior
-      # @see Krikri::SoftwareAgent#entity_behavior
+      # @see Feta::Activity#entities
+      # @see Feta::EntityBehavior
+      # @see Feta::SoftwareAgent#entity_behavior
       def entity_behavior
         @entity_behavior ||= Feta::AggregationEntityBehavior
       end

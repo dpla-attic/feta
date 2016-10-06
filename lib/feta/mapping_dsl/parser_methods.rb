@@ -10,7 +10,7 @@ module Feta::MappingDSL
     #
     # @return [RecordProxy] a RecordProxy providing delayed method calls against
     #   a parsed record.
-    # @see Krikri::MappingDSL::ParserMethods::RecordProxy
+    # @see Feta::MappingDSL::ParserMethods::RecordProxy
     def record
       RecordProxy.new
     end
@@ -62,7 +62,7 @@ module Feta::MappingDSL
     #
     #   record.field('dct:title').field('foaf:name')
     #
-    # @see Krikri::Parser::ValueArray
+    # @see Feta::Parser::ValueArray
     class RecordProxy
       attr_reader :value_class, :call_chain, :non_root
 
@@ -74,14 +74,14 @@ module Feta::MappingDSL
       #   and :block (a Proc to pass as a block). Defaults to [].
       # @param klass [Class] a Class that acts as the target for delayed method
       #   calls. Must respond to #build(record) and #values. Defaults to
-      #   Krikri::Parser::ValueArray
+      #   Feta::Parser::ValueArray
       # @param non_root [Boolean] a flag indicating whether to build the root
       #   node of the record before beginning the call chain. The default case
       #   call `value_class.build`; `false` allows you to skip this step and
       #   begin the call chain directly on object passed to `#call`.
       #
       # @return [RecordProxy]
-      def initialize(call_chain = [], klass = Krikri::Parser::ValueArray, non_root = false)
+      def initialize(call_chain = [], klass = Feta::Parser::ValueArray, non_root = false)
         @call_chain = call_chain
         @value_class = klass
         @non_root = non_root
@@ -96,7 +96,7 @@ module Feta::MappingDSL
       # each method is sent to the result of the previous method. Finally,
       # calls #values on the result.
       #
-      # @param record A parsed record object (e.g. Krikri::Parser) to be sent to
+      # @param record A parsed record object (e.g. Feta::Parser) to be sent to
       #   value_class#build.
       # @return the values resulting from the full run of the call chain
       def call(record)

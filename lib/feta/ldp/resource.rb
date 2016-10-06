@@ -9,7 +9,7 @@ module Feta::LDP
   #
   # @example implementing a resource
   #   class MyResource
-  #     include Krikri::LDP::Resource
+  #     include Feta::LDP::Resource
   #
   #     def rdf_subject
   #       @rdf_subject ||= RDF::URI('http://example.com/ldp/a/resource/path')

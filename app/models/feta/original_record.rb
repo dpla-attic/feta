@@ -148,10 +148,10 @@ module Feta
     #
     # @param activity_uri  the activity responsible for generation
     # @param update_etag  forces an http_head request to update of the etag
-    # @raise (see Krikri::LDP::Resource#save)
+    # @raise (see Feta::LDP::Resource#save)
     # @return [Boolean] true for success; else false
     #
-    # @see Krikri::LDP::Resource#save
+    # @see Feta::LDP::Resource#save
     def save(activity_uri = nil, update_etag = false)
       response = super(@content, headers)
       @rdf_subject ||= response.env.response_headers['location']
@@ -165,7 +165,7 @@ module Feta
     ##
     # Reloads the record from its LDP URI, updates #content to the response body
     #
-    # @raise (see Krikri::LDP::Resource#get)
+    # @raise (see Feta::LDP::Resource#get)
     # @return [OriginalRecord] self
     def reload
       @rdf_subject ||= self.class.nr_uri_from_headers(http_head)
@@ -183,9 +183,9 @@ module Feta
     # to use the rdf_source until the resource exists, and the appropriate
     # LDP-NR URI thereafter.
     #
-    # @raise (see Krikri::LDP::Resource#make_request)
-    # @return (see Krikri::LDP::Resource#make_request)
-    # @see Krikri::LDP::Resource#make_request
+    # @raise (see Feta::LDP::Resource#make_request)
+    # @return (see Feta::LDP::Resource#make_request)
+    # @see Feta::LDP::Resource#make_request
     # @todo this might not be thread safe! Initializer checks existance of
     #   rdf_source and sets rdf_subject appropriately, but race conditions
     #   are possible.

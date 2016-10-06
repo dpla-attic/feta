@@ -13,7 +13,7 @@ module Feta::MappingDSL
   #   class Book; attr_accessor :author; end
   #   class Agent; attr_accessor :name, :locale; end
   #
-  #   dec = Krikri::MappingDSL::ChildDeclaration.new(:author, Agent) do
+  #   dec = Feta::MappingDSL::ChildDeclaration.new(:author, Agent) do
   #     name   'Moomin'
   #     locale 'Moomin Valley'
   #   end
@@ -27,7 +27,7 @@ module Feta::MappingDSL
   #   class Book; attr_accessor :author; end
   #   class Agent; attr_accessor :name, :locale; end
   #
-  #   dec = Krikri::MappingDSL::ChildDeclaration.new(:author, Agent,
+  #   dec = Feta::MappingDSL::ChildDeclaration.new(:author, Agent,
   #       each: ['Moomin', 'Snuffkin'], as: :agent_name) do
   #     name    agent_name
   #     locale 'Moomin Valley'
